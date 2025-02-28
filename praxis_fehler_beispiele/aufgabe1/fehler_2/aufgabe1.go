@@ -4,15 +4,16 @@ package aufgabe1
 // das längste Element, das mit der Buchstabenfolge "abc" beginnt.
 // Liefert den leeren String, falls es kein solches Element gibt.
 func LongestAbc(list []string) string {
-	return find LongestABC(list, "")
+	return findLongestABC(list, "")
 }
-func findLongestABC (list []string, longest string) string {
+func findLongestABC(list []string, longest string) string {
 	if len(list) == 0 {
-		return Longest
+		return longest
 	}
-	if len (list[0]) >= 3 && list [0] [3] == "abc" {
-		if len (list[0]) > len(longest) {
-			longest =list [0]
+	if len(list[0]) >= 3 && list[0][:3] == "abc" {
+		if len(list[0]) > len(longest) {
+			longest = list[0]
 		}
 	}
+	return findLongestABC(list[1:], longest)
 }
