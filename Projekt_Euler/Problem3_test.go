@@ -11,10 +11,10 @@ import (
 // Program is running an returning corect results
 // but ther is a Problem with runtime
 // generating a list of all Prims ist time inefficent
-func ExamplePrims() {
+func ExamplePrimDivisor() {
 	//x := 600851475143
-	x := 5000000
-	//Prim := Prims(x)
+	x := 500000
+	//Prim := Primsbelow(x)
 	divisor := PrimDivisor(x)
 	y := Greatest(divisor)
 	//fmt.Println(Prim)
@@ -26,7 +26,7 @@ func ExamplePrims() {
 	//5
 }
 
-func Prims(max int) []int {
+func Primsbelow(max int) []int {
 	//sive := []int{}
 	prims := []int{}
 	for i := 2; i < max; i++ {
@@ -39,7 +39,7 @@ func Prims(max int) []int {
 }
 
 func PrimDivisor(n int) []int {
-	p := Prims(n)
+	p := Primsbelow(n)
 	divisors := []int{}
 	for _, el := range p {
 		if n%el == 0 {
