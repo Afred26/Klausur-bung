@@ -10,7 +10,7 @@ func ExampleExcludeBetween() {
 	fmt.Println(ExcludeBetween(l1, 50, 20))
 
 	// Output:
-	// [30 40]
-	// [20 30 40 50]
+	// [40 30]
+	// [50 40 30 20]
 	// []
 }
