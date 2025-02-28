@@ -6,18 +6,10 @@ func CountX(list []int, x int) int {
 
 	counter := 0
 
-	if len(list) == 0 {
-		return 0
+	for _, el := range list {
+		if el == x {
+			counter++
+		}
 	}
-
-	if list[0] == x {
-		counter++
-		return CountX(list[1:], x)
-	}
-
-	if list[0] != x {
-		return CountX(list[1:], x)
-	}
-
 	return counter
 }
