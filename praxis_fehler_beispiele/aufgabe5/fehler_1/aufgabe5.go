@@ -6,8 +6,8 @@ package aufgabe5
 // Bei einer solchen Kette muss immer die rechte Seite eines Steins
 // gleich der linken Seite des nächsten Steins sein.
 func IsChain(dominoes []Dominoe) bool {
-
-	return dominoes[Dominoe.Right] == dominoes[Dominoe.Left]
+	//Todo
+	return false
 }
 
 // Dominoe repräsentiert einen Domino-Stein mit zwei Zahlen.

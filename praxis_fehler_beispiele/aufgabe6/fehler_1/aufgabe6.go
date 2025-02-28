@@ -6,13 +6,8 @@ package aufgabe6
 // Im Ergebnis kommt jedes Element nur einmal vor.
 // Die Elemente stehen im Ergebnis in der Reihenfolge ihres ersten Auftretens.
 func Duplicates(list []int) []int {
-	result := []int{}
-	for _, el1 := range list {
-		if Contains(list, el1) {
-			result = append(result, el1)
-		}
-	}
-	return result
+	// Todo
+	return []int{}
 }
 
 // überpüfen ob el nochmal in liste ist fehlt mir
