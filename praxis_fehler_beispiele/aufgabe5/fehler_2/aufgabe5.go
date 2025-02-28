@@ -6,10 +6,11 @@ package aufgabe5
 // Bei einer solchen Kette muss immer die rechte Seite eines Steins
 // gleich der linken Seite des nächsten Steins sein.
 func IsChain(dominoes []Dominoe) bool {
-	for i := range list {
-		if left[i] == right[i] {
-			return true
-		}
+	if len(dominoes) <= 1 {
+		return true
+	}
+	if dominoes[0].Right == dominoes[1].Left {
+		return IsChain(dominoes[1:])
 	}
 	return false
 }
