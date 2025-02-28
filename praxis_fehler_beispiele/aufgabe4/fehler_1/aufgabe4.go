@@ -6,11 +6,12 @@ package aufgabe4
 // Falls eine Position nur in einer Liste vorkommt,
 // soll dieses Element ins Ergebnis übernommen werden.
 func ElementProducts(l1, l2 []int) []int {
-	//Todo
-	return []int{}
-}
-
-func Add(l []int, el int) {
-	//Todo
-	return
+	if len(l1) == 0 {
+		return l2
+	}
+	if len(l2) == 0 {
+		return l1
+	}
+	result := []int{l1[0] * l2[0]}
+	return append(result, ElementProducts(l1[1:], l2[1:])...)
 }
