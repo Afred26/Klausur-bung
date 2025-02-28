@@ -5,19 +5,19 @@ package aufgabe1
 // Liefert den leeren String, falls es kein solches Element gibt.
 func LongestAbc(list []string) string {
 
-	longestLen := 100
-	longestPos := 100
+	longestLen := -1
+	longestPos := -1
 
 	for pos, val := range list {
 		currentLen := len(val)
-		if currentLen <= 3 && val[1:] == "abcde" {
-			if currentLen < longestLen {
+		if currentLen >= 3 && val[:3] == "abc" {
+			if currentLen > longestLen {
 				longestLen = currentLen
 				longestPos = pos
 			}
 		}
 	}
-	if longestPos != 100 {
+	if longestPos != -1 {
 		return list[longestPos]
 	}
 
