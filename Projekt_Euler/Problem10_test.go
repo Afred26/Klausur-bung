@@ -22,6 +22,7 @@ func SumPrim(n int) int {
 	return SumList(x)
 }
 
+// Summiert alle Einträge von list auf
 func SumList(list []int) int {
 	if len(list) == 0 {
 		return 0
