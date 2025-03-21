@@ -5,18 +5,20 @@ import "fmt"
 //How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?
 
 func Example() {
-	y := Year{year: 1904}
-	y.IsLeapYear()
-	fmt.Println(y.leapyear)
-	sum := 0
-	for i := 1; i <= 12; i++ {
-		m := Month{month: i}
-		m.WhatNumDay()
-		sum = sum + m.numday
+	x := NewDate(1, 0, 2, 1904)
+	fmt.Println(x)
+	/*count := 0
+	for x.year.year < 2001 {
+		if x.day.weekday == 6 && x.day.day == 1 {
+			count++
+		}
+		x.NextDay()
 	}
-	fmt.Println(sum)
+	fmt.Println(count)
+	*/
 
 	// Output:
+	//1
 }
 
 type Date struct {
@@ -81,6 +83,31 @@ func (m *Month) WhatNumDay() {
 		m.numday = 30
 	case 12:
 		m.numday = 31
+	case 14:
+		m.numday = 29
 	}
 
+}
+
+func (d *Date) NextDay() {
+	d.day.day = d.day.day + 1
+	if d.day.day > d.month.numday {
+		d.day.day = 1
+		d.month.month = d.month.month + 1
+		if d.month.month == 13 || d.month.month == 15 {
+			d.month.month = 1
+			d.year.year = d.year.year + 1
+		}
+	}
+	if d.year.leapyear {
+		d.month.month = 13
+	}
+	d.day.weekday = (d.day.weekday + 1) % 7
+}
+
+func NewDate(d, wd, m, y int) Date {
+	x := Date{day: Day{day: d, weekday: wd}, month: Month{month: m}, year: Year{year: y}}
+	x.year.IsLeapYear()
+	x.month.WhatNumDay()
+	return x
 }
