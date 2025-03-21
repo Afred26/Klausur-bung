@@ -7,7 +7,7 @@ import "fmt"
 //There exists exactly one Pythagorean triplet for which a + b + c = 1000.
 //Find the product abc.
 
-func Example() {
+func ExampleFindTriplets() {
 	x1 := Pythagoreantriplet{a: 3, b: 4, c: 5}
 	x2 := Pythagoreantriplet{a: 3, b: 4, c: 993}
 	fmt.Println(x1.IsPythagorean())
